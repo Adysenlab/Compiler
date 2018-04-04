@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/c++,cmake
+# Created by https://www.gitignore.io/api/c++,cmake,visualstudiocode
 
 ### C++ ###
 # Prerequisites
@@ -47,5 +47,14 @@ compile_commands.json
 CTestTestfile.cmake
 build
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
 
-# End of https://www.gitignore.io/api/c++,cmake
+### additional folders that might exist ###
+build/*
+# End of https://www.gitignore.io/api/c++,cmake,visualstudiocode

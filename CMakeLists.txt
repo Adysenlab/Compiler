@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.6)
 # Declaration et nommage du projet
 project(parser)
 set(PROGRAM_NAME ${PROJECT-NAME})
-set(CXX "clang++")
+set(CXX "g++")
 
 
 
