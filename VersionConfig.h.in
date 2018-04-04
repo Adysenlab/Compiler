@@ -1,0 +1,4 @@
+// the configured options and settings for language
+#define PARSE_VERSION_MAJOR @PARSE_VERSION_MAJOR@
+#define PARSE_VERSION_MINOR @PARSE_VERSION_MINOR@
+#define PARSE_VERSION_PATCH @PARSE_VERSION_PATCH@

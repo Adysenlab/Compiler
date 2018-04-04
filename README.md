@@ -1,68 +1,51 @@
-Bison Flex C++ Template
-=====================
+# README #
 
-Usage
------
+This README would normally document whatever steps are necessary to get your application up and running.
 
-First check that the project is compiling without any error on your system before proceeding to any further customization.
+### What is this repository for? ###
 
-```sh
-$ git clone https://github.com/remusao/Bison-Flex-C---template.git bison-flex-template
-$ cd bison-flex-template
-$ ./configure
-$ make
-```
+* Quick summary
+    this is the basic version of a full fledged language that adysenlab vevo is required to produce my the offset of summer 2018 
+* Version
+    current at beta :: 0.001.0 [Refer to license ]
+* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
-This should produce an executable `parser` at the root of your `bison-flex-template` directory. By default it reads its input from `stdin`:
+### How do I get set up? ###
 
-```sh
-$ echo "foo" | ./parser
-# 1.1 Unexpected token : f
-# 1.2 Unexpected token : o
-# 1.3 Unexpected token : o
-```
+* Summary of set up
+    A test language that you can play with have fun and research on. Do return back to us with suggestions and we would be happy for the help and maybe meet for coffee.
+ 
+* Configuration
+    the set of files can be built by cmake - makefile generator for the project source code 
+select the build location of the source codes and try command 
+* Dependencies
+    c++ language compiler and cmake build generator but we are gearing towards LLVM code generation in the near future
+* Database configuration
+    none as of now and we are planning for a dedicative storage referal engine 
+* How to run tests
+    currently not added
+* Deployment instructions
 
-By default, the scanner doesn't recognize any token except `eol` (end of line), and every character read is considered an unknown token, that's why every letter is reported as an error.
-We see that location is updated as each line starts with a couple `line.column` to indicate where the current token begins. The three lines are Lexer errors (unrecognised tokens).
+### cmake ..
+this would result in the makefile which can be built using 
 
-Customization
--------------
+### make 
+there is also configuration added for debian packaging support 
 
-I won't write a complete explanation on how Bison and Flex work but once you get a program structure that runs well (which can be quite difficult... that's why I decided to create this repository), we proceed as follows to customize our lexer and parser:
+### cpack --config CPackConfig.cmake
+this would generate the debian installers for binary distribution
 
-* Write scanner `src/parse/scan.ll`, you can declare:
-    * Named regex (follow the example of `blank` and `eol`
-    * Flex options
-    * Stacks to simulate contexts (useful for comments for example)
-    * Tokens and associated code, one by line `{blank}  { /* C++ code goes here */ return TOKEN; }` (`TOKEN` will be caught by Bison that will try to match it with the grammar)
-* Write parser `src/parse/parse.yy`, you can declare:
-    * Tokens (names and types, they will be used both in scan.ll and parse.yy)
-    * Bison options
-    * Precedance rules
-    * Grammar
-    * Customize error reporting using the `error()` function
-* Interact with parser through the driver, as is shown in `main.cc`
-    * Include `driver.hh`
-    * Create a `Driver` object
-    * Use one of `parse()` or `parse_file()` functions (read from `stdin` and a file respectively)
+### cpack --config CPackSourceConfig.cmake
+this would build source source distributions with various compression levels
+### Contribution guidelines ###
 
-For more information on how to customize scanner, parser:
+* Writing tests
+    currently in development please push in tests for this language 
+* Code review
+    would  be generous to add to the mailing list of the future developments please contribute 
+* Other guidelines
+please don't spam we hate putting you in blocking lists 
+### Who do I talk to? ###
 
-* [Flex documentation](http://flex.sourceforge.net/manual/)
-* [Bison documentation](http://www.gnu.org/software/bison/manual/)
-* [CPP coding style checker written with flex](https://github.com/remusao/CPP_Coding_Style_Checker/)
-
-Dependencies
-------------
-
-* Bison
-* Flex
-* CMake
-* a recent C++ compiler (`g++` or `clang++`)
-
-Acknowledgement
----------------
-
-The repository is born after I spent some time working my way to integrate Bison and Flex into my project. I thought this work could be useful in the futur, when a scanner or parser is needed.
-
-As Bison and Flex can be complicated to use, there may be easier alternatives such as Boost spirit that better integrates in `C++` code.
+* Repo owner or admin mail at adysenlab@gmail.com
+* Other community or team contact [ slack channel comming up ]
